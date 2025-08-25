@@ -452,7 +452,7 @@ function RegisteredEvents() {
             <h3 className="text-2xl font-bold text-gray-900 mb-2">No registrations yet</h3>
             <p className="text-gray-500 mb-8 text-lg">You haven't registered for any events or webinars.</p>
             <button 
-              onClick={() => navigate('/events')}
+              onClick={() => navigate('/')}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200"
             >
               Browse Events

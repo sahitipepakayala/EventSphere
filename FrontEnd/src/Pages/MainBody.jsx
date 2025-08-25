@@ -196,7 +196,7 @@ function MainBody() {
 
               <input
                 type="text"
-                placeholder="Search for events, hackathons, webinars..."
+                placeholder="Search for fests by location or college..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyPress={handleKeyPress}

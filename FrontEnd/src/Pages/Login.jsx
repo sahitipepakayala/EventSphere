@@ -108,7 +108,7 @@ import {useGoogleLogin} from '@react-oauth/google'
 const apiUrl = import.meta.env.VITE_API_URL;
 
 function Login() {
-  const [emailId, setEmailid] = useState("sahiti123@gmail.com");
+  const [emailId, setEmailid] = useState("chaitu65@gmail.com");
   const [password, setPassword] = useState("sahiti@149");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
