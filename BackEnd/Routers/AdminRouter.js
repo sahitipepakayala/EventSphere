@@ -8,10 +8,11 @@ adminRouter.post("/signup",async (req,res)=>{
     const {name,emailId,password,number,college}=req.body;
     const admindup=await Admin.findOne({emailId});
     try{
-        if(admindup)
-        {
-          return res.status(409).json({ message: "User Exists!" });
-        }
+       if(admindup) {
+    console.log("Duplicate user found:", admindup.emailId);
+    return res.status(409).json({ message: "User Exists!" });
+}
+
         const hashpwd=await bcrypt.hash(password,10);
         const admin1=new Admin({
             name,

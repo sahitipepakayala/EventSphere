@@ -180,7 +180,7 @@ function AdminSignup() {
        const res=await axios.post(`${apiUrl}/admin/signup`,{name,college,number,emailId,password}, { withCredentials: true });
        console.log(res.data)
          dispatch(addUser(res.data));
-         localStorage.setItem('user', JSON.stringify(res.data.data));
+         localStorage.setItem('user', JSON.stringify(res.data));
        Swal.fire({
    title: "Signedin successfully",
    timer: 1000,
