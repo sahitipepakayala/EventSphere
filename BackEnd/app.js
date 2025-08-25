@@ -16,11 +16,21 @@ const webinarRegRouter = require("./Routers/WebinarRegistrations");
 
 app.use(express.json())
 app.use(cookieParser());
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://eventspheref.onrender.com"
+];
 
 app.use(cors({
-    origin:"https://eventspheref.onrender.com",
-    credentials:true
-}))
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, origin);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
 const connectDb=async () =>{
     try{
