@@ -17,19 +17,20 @@ const webinarRegRouter = require("./Routers/WebinarRegistrations");
 app.use(express.json())
 app.use(cookieParser());
 const allowedOrigins = [
-  "http://localhost:5173", 
-  "https://eventspheref.onrender.com"
+  "http://localhost:5173",
+  "https://eventspheref.onrender.com",
+  "https://www.eventspheref.onrender.com"
 ];
 
 app.use(cors({
-  origin: function(origin, callback) {
+  origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, origin);
     } else {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true
+  credentials: true,
 }));
 
 const connectDb=async () =>{
@@ -78,7 +79,7 @@ app.use("/webinar",webinarRegRouter);
 app.get("/logout", (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false, // true if using HTTPS
+    secure: true, // true if using HTTPS
     sameSite: "lax",
     path: "/"
   });
